@@ -1,0 +1,10 @@
+.empty-state {
+    width: min(260px, 100%);
+    margin: 0 auto;
+    text-align: center;
+  
+    &-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+}

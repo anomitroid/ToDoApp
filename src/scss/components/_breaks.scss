@@ -1,0 +1,12 @@
+@use "../abstracts/themes" as *;
+
+hr {
+    width: 100%;
+    height: 2px;
+    border: none;
+    margin: 1.5rem 0;
+
+    @include themify {
+        background-color: themed("accent");
+    }
+}

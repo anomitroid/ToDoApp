@@ -1,0 +1,15 @@
+@use "../abstracts/mixins" as *;
+
+.project {
+    &-color {
+        display: block;
+
+        &-s {
+            @include circle(0.75rem);
+        }
+
+        &-m {
+            @include circle(1.5rem);
+        }
+    }
+}

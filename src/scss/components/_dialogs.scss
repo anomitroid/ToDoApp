@@ -1,0 +1,107 @@
+@use "../abstracts/themes" as *;
+
+.dialog {
+    margin: auto;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+    width: min(600px, 100%);
+    transition: display 0.3s allow-discrete;
+
+    @include themify {
+        background-color: themed("background");
+    }
+
+    &[open] {
+        animation: open-dialog 0.3s ease;
+    }
+
+    &:not([open]) {
+        display: none;
+        animation: close-dialog 0.3s ease;
+    }
+
+    &-s {
+        padding: 1.75rem;
+        width: min(560px, 100%);
+    }
+
+    &-l {
+        padding: 2rem;
+    }
+
+    &-add-edit {
+        .auto-grow {
+            margin-top: 1rem;
+        }
+
+        .form-btns-label {
+            margin: 1.5rem 0;
+        }
+    }
+
+    &-show-task {
+        display: flex;
+        align-items: start;
+        gap: 1.5rem;
+
+        .dialog-task-title, .form-input-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .dialog-task-description, .dialog-input-description {
+            font-size: 1rem;
+        }
+    }
+
+    &-task {
+        &-info-container {
+            flex: 1;
+        }
+
+        &-title {
+            @include themify {
+                color: themed("text-main");
+            }
+
+            &.checked {
+                text-decoration: line-through;
+            }
+        }
+
+        &-description {
+            @include themify {
+                color: themed("text-secondary");
+            }
+        }
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+@keyframes open-dialog {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes close-dialog {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
+}

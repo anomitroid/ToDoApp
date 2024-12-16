@@ -1,0 +1,105 @@
+.task {
+    margin-bottom: 2rem;
+  
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+  
+    &, &-container {
+        display: flex;
+        gap: 1rem;
+    }
+  
+    &-info, &-container {
+        flex: 1;
+        min-width: 0;
+    }
+  
+    &-title {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+  
+    &-description {
+        margin-top: 0.25rem;
+        font-size: 1rem;
+        font-weight: 300;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+  
+    &-date {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    
+        > svg {
+            width: 1rem;
+            height: 1rem;
+    
+            min-width: 1rem;
+            min-height: 1rem;
+        }
+    
+        @mixin set-color($color) {
+            color: $color !important;
+            border-color: $color !important;
+    
+            .svg-fill path {
+            fill: $color !important;
+            }
+    
+            .svg-stroke path {
+            stroke: $color !important;
+            }
+        }
+    
+        &-incoming {
+            @include set-color(#15803d);
+        }
+    
+        &-overdue {
+            @include set-color(#b91c1c);
+        }
+    }
+  
+    &-project {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    
+        &-title {
+            font-size: 1rem;
+            font-weight: 400;
+    
+            &-empty {
+            font-weight: 300;
+            }
+        }
+    
+        &-color {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+        }
+    }
+  
+    &-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        gap: 0.5rem;
+    
+        button:first-of-type {
+            margin-right: 1rem;
+        }
+    }
+  
+    &-list {
+        width: 100%;
+        list-style: none;
+    }
+}

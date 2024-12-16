@@ -1,0 +1,8 @@
+@use "../abstracts/themes" as *;
+
+body {
+    @include themify(true) {
+        color: themed("text-main");
+        background-color: themed("background");
+    }
+}

@@ -1,0 +1,54 @@
+@use "../abstracts/themes" as *;
+
+.popup {
+    position: fixed;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1.25rem;
+    font-weight: 300;
+    z-index: 999;
+    left: 50%;
+    bottom: 2rem;
+    min-width: max-content;
+    transition: display 0.3s allow-discrete;
+    animation: open-popup 0.3s forwards;
+
+    @include themify {
+        background-color: themed("background");
+    }
+
+    &.hidden {
+        animation: close-popup 0.3s forwards;
+    }
+
+    &-undo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@keyframes open-popup {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 200%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes close-popup {
+    from {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, 200%);
+    }
+}

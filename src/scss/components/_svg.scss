@@ -1,0 +1,15 @@
+@use "../abstracts/themes" as *;
+
+.svg {
+    &-fill path {
+        @include themify {
+            fill: themed("icon");
+        }
+    }
+
+    &-stroke path {
+        @include themify {
+            stroke: themed("icon");
+        }
+    }
+}

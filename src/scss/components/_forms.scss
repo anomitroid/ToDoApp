@@ -1,0 +1,111 @@
+@use "../abstracts/themes" as *;
+
+.form {
+    position: relative;
+
+    &-btns {
+        &-func {
+            display: flex;
+            justify-content: end;
+            gap: 1rem;
+        }
+
+        &-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+    }
+
+    &-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+
+        @include themify {
+            color: themed("text-main");
+        }
+    }
+
+    &-input {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    &-error {
+        color: #b91c1c;
+    }
+
+    &-color-text-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &-task-info {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+
+        @include themify {
+            border: 2px solid themed("accent");
+        }
+    }
+
+    &-popup {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        border-radius: 1rem;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.25);
+
+        @include themify {
+            background-color: themed("background");
+        }
+
+        &-color {
+            position: fixed;
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+        }
+    }
+
+    &-date-picker-input {
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        left: 0;
+    }
+
+    label {
+        cursor: pointer;
+    }
+
+    textarea {
+        font-size: 1rem;
+    }
+
+    input, textarea {
+        display: block;
+        width: 100%;
+        border: none;
+        background: none;
+
+        @include themify {
+            color: themed("text-main");
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            @include themify {
+                color: themed("text-secondary");
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.main {
+    flex: 1;
+    min-width: 0;
+	max-height: 100vh;
+	overflow: auto;
+  
+    &-title {
+		font-size: 3rem;
+		font-weight: 700;
+	
+		&-container {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+		}
+	
+		&-project {
+			width: 1.5rem;
+			height: 1.5rem;
+			border-radius: 50%;
+		}
+    }
+  
+    &-header {
+		display: flex;
+		margin: 1rem 2rem;
+		height: 1.5rem;
+		gap: 1rem;
+		position: fixed;
+
+		button {
+			position: relative;
+			z-index: 10;
+		}
+    }
+  
+    &-content {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 3rem;
+		margin: 4rem auto;
+		padding: 0 2rem;
+		width: 100%;
+		max-width: 900px;
+		max-height: 100vh;
+		overflow: auto;
+		position: relative;
+
+		> button {
+			position: fixed;
+			z-index: 10;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 5%;
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&::-webkit-scrollbar {
+        width: 10px; 
+        height: 10px; 
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;  
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;   
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;  
+    }
+}
+
+.sidebar-open > button {
+	transform: translateX(50%);
+}

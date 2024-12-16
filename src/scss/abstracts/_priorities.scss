@@ -1,0 +1,32 @@
+$colors: (
+    1: #b91c1c,
+    2: #d97706,
+    3: #16a34a
+);
+
+@function priority-colored() {
+    @return $priority-color;
+}
+
+@mixin priority-color () {
+    @each $num, $color in $colors {
+        $priority-color: $color !global;
+        &-#{$num} {
+            @content;
+        }
+        $priority-color: null !global;
+    }
+}
+
+@mixin priority-color-fill () {
+    @include priority-color {
+        color: priority-colored() !important;
+        @content;
+        .svg-fill path {
+            fill: priority-colored() !important;
+        }
+        .svg-stroke path {
+            stroke: priority-colored() !important;
+        }
+    }
+}

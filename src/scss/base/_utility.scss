@@ -1,0 +1,26 @@
+.hidden {
+    display: none !important;
+}
+  
+.auto-grow {
+    display: grid;
+  
+    &::after {
+        content: attr(data-value) " ";
+        white-space: pre-wrap;
+        visibility: hidden;
+    }
+  
+    &::after, & > textarea {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+  
+    > textarea {
+        resize: none;
+        overflow: hidden;
+    }
+}
+  
+* {
+    transition: color, background-color 0.3s ease;
+}

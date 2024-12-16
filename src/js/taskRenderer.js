@@ -41,6 +41,8 @@ export default class TaskRenderer {
                 this.#tasks.delete (task.id);
                 undoPopup.open (task);
 
+                setTimeout (() => undoPopup.close (), 5000);
+
                 this.render (navigator.getActiveItem ().filter);
             }
             else if (target.classList.contains ("btn-task-edit")) {

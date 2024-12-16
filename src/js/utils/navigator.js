@@ -47,7 +47,7 @@ const activate = (navItem) => {
 };
 
 const exists = (title) => {
-    !!fullNav.find ((i) => i.name.toLowerCase () == title.toLowerCase ());
+    return !!fullNav.find ((i) => i.name.toLowerCase () == title.toLowerCase ());
 };
 
 const updateNavigationDOM = () => {

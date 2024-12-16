@@ -30,6 +30,12 @@ class ProjectDialog extends Dialog {
 
             const isCurrentName = this.current && text.toLowerCase () == this.current.name.toLowerCase ();
 
+            console.log ("projectDialog: " + this.current);
+
+            console.log ("projectDialog: " + text);
+
+            console.log (navigator.exists (text));
+
             if (!navigator.exists (text) || isCurrentName) {
                 visibility.hide (this.error);
                 this.submitBtn.disabled = false;

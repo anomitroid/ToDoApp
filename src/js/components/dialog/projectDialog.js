@@ -51,6 +51,7 @@ class ProjectDialog extends Dialog {
     close () {
         super.close ();
         this.colorPicker.close ();
+        visibility.hide (this.error);
     }
 
     onSubmit (e) {

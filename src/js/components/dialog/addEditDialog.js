@@ -83,7 +83,10 @@ class AddEditDialog extends Dialog {
 
         console.log("Active filter:", navigator.getActiveItem().filter);
 
-        tasks.renderTasks (navigator.getActiveItem ().filter); 
+        const activeItem = navigator.getActiveItem ();
+
+        if (activeItem.color) tasks.renderTasks ((task) => (task.projectId == activeItem.id) && !task.completed);
+        else tasks.renderTasks (navigator.getActiveItem ().filter); 
 
         console.log("Tasks after filter:", tasks.getTasks().getList().filter(navigator.getActiveItem().filter));
 

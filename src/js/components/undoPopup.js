@@ -4,7 +4,7 @@ import navigator from "../utils/navigator";
 import visibility from "../utils/visibility";
 import createIconButton from "./button/iconButton";
 
-export default class UndoPopup {
+class UndoPopup {
     #popup;
     #task;
     #timeout;
@@ -46,3 +46,6 @@ export default class UndoPopup {
         visibility.hide (this.#popup);
     }
 }
+
+const undoPopup = new UndoPopup (".popup-undo");
+export default undoPopup;

@@ -4,7 +4,7 @@ import projects from "./store/projects";
 import createIconButton from "./components/button/iconButton";
 import addEditDialog from "./components/dialog/addEditDialog";
 import deleteDialog from "./components/dialog/deleteDialog";
-import UndoPopup from "./components/undoPopup";
+import undoPopup from "./components/undoPopup";
 import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/calendar.svg";
 import editIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/edit.svg";
 import deleteIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/delete.svg";
@@ -17,8 +17,6 @@ export default class TaskRenderer {
     #tasks;
 
     constructor (parent, emptyState, tasks) {
-        const undoPopup = new UndoPopup (".popup-undo");
-
         this.#parent = document.querySelector (parent);
 
         console.log ("taskRenderer: fine at parent" + this.#parent);
@@ -36,6 +34,8 @@ export default class TaskRenderer {
             if (!target.classList) return;
 
             if (target.classList.contains ("btn-check")) {
+                console.log ("taskRenderer: clicked on check button" + e.target);
+
                 const task = this.#findTask (target);
 
                 this.#tasks.delete (task.id);

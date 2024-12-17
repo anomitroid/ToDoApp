@@ -8,6 +8,7 @@ import projects from "../../store/projects";
 import navigator from "../../utils/navigator";
 import visibility from "../../utils/visibility";
 import Dialog from "./dialog";
+import undoPopup from "../undoPopup";
 
 class ShowTaskDialog extends Dialog {
     constructor () {
@@ -24,13 +25,23 @@ class ShowTaskDialog extends Dialog {
             this.taskChecked = !this.taskChecked;
 
             if (this.taskChecked) {
+                console.log ("showTaskDialog: task checked");
+
                 this.btnCheck.classList.add (checkedClass);
                 this.title.classList.add (checkedClass);
 
+                tasks.getTasks ().delete (this.current.id);
+
+                console.log ("tasks: " + tasks);
+
+                undoPopup.open (this.current);
+
+                setTimeout (() => undoPopup.close (), 5000);
+
+                console.log ("tasks: " + tasks);
+
                 visibility.hide (this.labelBtns);
                 visibility.hide (this.hr);
-
-                tasks.getTasks ().delete (this.current.id);
             }
             else {
                 this.uncheckTask (checkedClass);

@@ -133,7 +133,10 @@ export default class TaskRenderer {
         title.textContent = task.title;
         info.appendChild (title);
 
-        if (task.completed) btn.classList.add ("checked");
+        if (task.completed) {
+            btn.classList.add ("checked");
+            title.classList.add ("checked");
+        }
 
         if (task.description) {
             const description = document.createElement ("p");

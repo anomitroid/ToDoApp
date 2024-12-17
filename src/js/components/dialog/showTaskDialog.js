@@ -146,7 +146,10 @@ class ShowTaskDialog extends Dialog {
 
         this.btnCheck.classList = "btn btn-check";
         if (this.current && this.current.priority) this.btnCheck.classList.add (`btn-check-${this.current.priority}`);
-        if (this.current && this.current.completed) this.btnCheck.classList.add ("checked");
+        if (this.current && this.current.completed) {
+            this.btnCheck.classList.add ("checked");
+            this.title.classList.add ("checked");
+        }
 
         this.datePicker.updateDate ((this.current && this.current.dueDate) || null);
         this.projectSelect.setCurrentProject (

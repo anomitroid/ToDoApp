@@ -35,6 +35,7 @@ class ShowTaskDialog extends Dialog {
                 // tasks.getTasks ().delete (this.current.id);
 
                 console.log ("tasks: " + tasks);
+                this.dialog.close ();
 
                 undoPopup.open (this.current);
 
@@ -140,8 +141,12 @@ class ShowTaskDialog extends Dialog {
         this.descriptionInput.parentNode.dataset.value = descriptionValue;
         this.description.textContent = descriptionValue;
 
+        console.log ("current");
+        console.log (this.current);
+
         this.btnCheck.classList = "btn btn-check";
         if (this.current && this.current.priority) this.btnCheck.classList.add (`btn-check-${this.current.priority}`);
+        if (this.current && this.current.completed) this.btnCheck.classList.add ("checked");
 
         this.datePicker.updateDate ((this.current && this.current.dueDate) || null);
         this.projectSelect.setCurrentProject (
@@ -152,7 +157,7 @@ class ShowTaskDialog extends Dialog {
         );
 
         this.hideForm ();
-        this.uncheckTask ();
+        // this.uncheckTask ();
     }
 
     showForm () {

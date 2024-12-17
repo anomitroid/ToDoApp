@@ -27,10 +27,12 @@ class ShowTaskDialog extends Dialog {
             if (this.taskChecked) {
                 console.log ("showTaskDialog: task checked");
 
+                tasks.getTasks ().update (this.current.id, { ...this.current, completed: true });
+
                 this.btnCheck.classList.add (checkedClass);
                 this.title.classList.add (checkedClass);
 
-                tasks.getTasks ().delete (this.current.id);
+                // tasks.getTasks ().delete (this.current.id);
 
                 console.log ("tasks: " + tasks);
 

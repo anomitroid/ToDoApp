@@ -16,7 +16,9 @@ class UndoPopup {
         undoBtn.addEventListener ("click", () => {
             if (!this.#task || this.#task.id == -1) return;
 
-            tasks.getTasks ().add (this.#task);
+            tasks.getTasks ().update (this.#task.id, { ...this.#task, completed: false });
+
+            // tasks.getTasks ().add (this.#task);
             tasks.renderTasks (navigator.getActiveItem ().filter); 
 
             this.close ();

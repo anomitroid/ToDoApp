@@ -6,9 +6,10 @@ const createTask = (
     description,
     dueDate,
     projectId = -1,
-    priority = 4
+    priority = 4,
+    completed = false
 ) => {
-    return { title, description, dueDate, projectId, priority };
+    return { title, description, dueDate, projectId, priority, completed };
 };
 
 const tasks = new Store ("tasks");

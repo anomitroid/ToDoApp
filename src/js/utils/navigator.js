@@ -4,6 +4,7 @@ import editProjectButton from "../components/button/editProjectButton";
 import inboxIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/inbox.svg";
 import starIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/star.svg";
 import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/calendar.svg";
+import checkIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/check.svg"
 import { isAfter, isBefore, isToday, startOfToday } from "date-fns";
 import visibility from "./visibility";
 
@@ -18,9 +19,10 @@ const createNavItem = (name, icon, active, filter) => {
 };
 
 const mainNav = [
-    createNavItem ("All Tasks", inboxIcon, true, (task) => task),
-    createNavItem ("Today", starIcon, false, (task) => task.dueDate && isToday (task.dueDate) || isBefore (task.dueDate, startOfToday ())),
-    createNavItem ("Upcoming", calendarIcon, false, (task) => task.dueDate && isToday (task.dueDate) || isAfter (task.dueDate, startOfToday ()))
+    createNavItem ("All Tasks", inboxIcon, true, (task) => !task.completed && task),
+    createNavItem ("Today", starIcon, false, (task) => !task.completed && (task.dueDate && isToday (task.dueDate) || isBefore (task.dueDate, startOfToday ()))),
+    createNavItem ("Upcoming", calendarIcon, false, (task) => !task.completed && (task.dueDate && isToday (task.dueDate) || isAfter (task.dueDate, startOfToday ()))),
+    createNavItem ("Recently Completed", checkIcon, false, (task) => task.completed)
 ];
 
 let fullNav = [];

@@ -38,12 +38,16 @@ export default class TaskRenderer {
 
                 const task = this.#findTask (target);
 
-                this.#tasks.delete (task.id);
+                console.log (task.completed, task);
+                this.#tasks.update (task.id, { ...task, completed : true });
+                console.log (task.completed, task);
+
+                this.render (navigator.getActiveItem ().filter);
+
+                // this.#tasks.delete (task.id);
                 undoPopup.open (task);
 
                 setTimeout (() => undoPopup.close (), 5000);
-
-                this.render (navigator.getActiveItem ().filter);
             }
             else if (target.classList.contains ("btn-task-edit")) {
                 const task = this.#findTask (target);

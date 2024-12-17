@@ -3,6 +3,7 @@ import createMainSection from "./components/main";
 import createSidebar from "./components/sidebar";
 import navigator from "./utils/navigator";
 import tasks from "./store/tasks";
+import "./store/autoDelete";
 
 createSidebar ();
 createMainSection ();

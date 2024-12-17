@@ -98,7 +98,7 @@ class AddEditDialog extends Dialog {
         else tasks.renderTasks (navigator.getActiveItem ().filter); 
 
         console.log("Tasks after filter:", tasks.getTasks().getList().filter(navigator.getActiveItem().filter));
-
+        console.log ("addEditDialog: TASK CREATED");
         this.close ();
     }
 }

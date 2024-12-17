@@ -28,8 +28,13 @@ export default class TaskRenderer {
             let target = e.target;
 
             console.log ("taskRenderer: clicked on " + target);
+            console.log ("here");
+            console.log (target);
 
             while (target.tagName == "path" || target.tagName == "svg") target = target.parentNode;
+
+            console.log ("now here");
+            console.log (target);
 
             if (!target.classList) return;
 
@@ -41,6 +46,7 @@ export default class TaskRenderer {
                 console.log (task.completed, task);
                 this.#tasks.update (task.id, { ...task, completed : true });
                 console.log (task.completed, task);
+                console.log (target);
 
                 this.render (navigator.getActiveItem ().filter);
 
@@ -48,6 +54,7 @@ export default class TaskRenderer {
                 undoPopup.open (task);
 
                 setTimeout (() => undoPopup.close (), 5000);
+                console.log (target);
             }
             else if (target.classList.contains ("btn-task-edit")) {
                 const task = this.#findTask (target);
@@ -125,6 +132,8 @@ export default class TaskRenderer {
         title.classList = "task-title";
         title.textContent = task.title;
         info.appendChild (title);
+
+        if (task.completed) btn.classList.add ("checked");
 
         if (task.description) {
             const description = document.createElement ("p");

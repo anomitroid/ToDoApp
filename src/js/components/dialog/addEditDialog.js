@@ -5,6 +5,7 @@ import ProjectSelect from "../select/projectSelect";
 import projects from "../../store/projects";
 import PrioritySelect from "../select/prioritySelect";
 import Dialog from "./dialog";
+import { startOfToday } from "date-fns";
 
 const DIALOG_CLASS = ".dialog-add-edit";
 
@@ -28,6 +29,8 @@ class AddEditDialog extends Dialog {
         console.log ("addEditDialog: " + (this.current ? "edit" : "add"));
 
         const activeItem = navigator.getActiveItem ();
+
+        console.log (activeItem);
 
         console.log ((activeItem.color ? "project" : "not a project"));
 
@@ -56,9 +59,15 @@ class AddEditDialog extends Dialog {
         this.descriptionInput.value = description;
         this.descriptionInput.parentNode.dataset.value = description;
 
+        if (activeItem.dataName == "today") {
+            if (this.current && !this.current.dueDate) this.datePicker.updateDate (null);
+            else this.datePicker.updateDate ((this.current && this.current.dueDate) || startOfToday ());
+        }
+        else this.datePicker.updateDate ((this.current && this.current.dueDate) || null);
+
         this.nameInput.value = (this.current && this.current.title) || "";
         this.submitBtn.textContent = this.current ? "Edit Task" : "Add Task";
-        this.datePicker.updateDate ((this.current && this.current.dueDate) || null);
+        // this.datePicker.updateDate ((this.current && this.current.dueDate) || null);
         this.prioritySelect.setCurrentPriority ((this.current && this.current.priority) || 4);
     }
 

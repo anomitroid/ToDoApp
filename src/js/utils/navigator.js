@@ -59,6 +59,11 @@ const updateNavigationDOM = () => {
 
     if (activeBtn && activeBtn.dataset.name == activeItem.dataName) return ;
 
+    const addTaskButton = document.querySelector (".btn-add-task-l");
+
+    if (activeItem.dataName == "recently_completed") addTaskButton.style.display = "none";
+    else addTaskButton.style.display = "flex";
+
     const targetBtn = btns.find ((btn) => btn.dataset.name == activeItem.dataName);
     if (!targetBtn) return ;
 

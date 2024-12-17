@@ -12,4 +12,5 @@ navigator.updateNavigationDOM ();
 
 window.addEventListener ("click", () => console.log (navigator.getActiveItem ()));
 
-tasks.renderTasks ();
+// tasks.renderTasks ();
+document.addEventListener ("DOMContentLoaded", () => tasks.renderTasks (navigator.getActiveItem ().filter));

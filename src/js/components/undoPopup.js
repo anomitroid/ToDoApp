@@ -1,4 +1,4 @@
-import closeIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/close.svg";
+import closeIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/close.svg";
 import tasks from "../store/tasks";
 import navigator from "../utils/navigator";
 import visibility from "../utils/visibility";

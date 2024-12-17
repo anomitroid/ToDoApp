@@ -5,7 +5,7 @@ import navigator from "../utils/navigator";
 import createAddTaskButton from "./button/addTaskButton";
 import createIconButton from "./button/iconButton";
 import { hideSidebarBtn } from "./button/sidebarButton";
-import addProjectIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/plus.svg";
+import addProjectIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/plus.svg";
 import projectDialog from "./dialog/projectDialog";
 
 const createSidebarButton = (navItem, classList, onClick = null) => {

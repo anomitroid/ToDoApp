@@ -1,6 +1,6 @@
 import visibility from "../../utils/visibility";
 import createIconButton from "./iconButton";
-import sidebarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/sidebar.svg";
+import sidebarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/sidebar.svg";
 
 let sidebarBtn;
 

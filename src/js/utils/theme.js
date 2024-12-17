@@ -1,5 +1,5 @@
-import lightIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/light.svg";
-import darkIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/dark.svg";
+import lightIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/light.svg";
+import darkIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/dark.svg";
 
 let currentTheme = localStorage.theme || "light";
 const themeIcons = {

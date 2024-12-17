@@ -1,4 +1,4 @@
-import settingsIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/settings.svg";
+import settingsIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/settings.svg";
 import projects from "../../store/projects";
 import visibility from "../../utils/visibility";
 import projectDialog from "../dialog/projectDialog";

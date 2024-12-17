@@ -1,4 +1,4 @@
-import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/calendar.svg";
+import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/calendar.svg";
 import formatDate from "../../utils/date";
 
 export default class DatePicker {

@@ -1,4 +1,4 @@
-import projectIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/project.svg";
+import projectIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/project.svg";
 import projects from "../../store/projects";
 import Select from "./select";
 

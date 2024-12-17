@@ -1,4 +1,4 @@
-import flagIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/flag.svg";
+import flagIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/flag.svg";
 import Select from "./select";
 
 const PRIORITIES = [

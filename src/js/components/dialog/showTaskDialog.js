@@ -3,7 +3,7 @@ import createIconButton from "../button/iconButton";
 import DatePicker from "../picker/datePicker";
 import PrioritySelect from "../select/prioritySelect";
 import ProjectSelect from "../select/projectSelect";
-import closeIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/close.svg";
+import closeIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/close.svg";
 import projects from "../../store/projects";
 import navigator from "../../utils/navigator";
 import visibility from "../../utils/visibility";

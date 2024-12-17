@@ -1,4 +1,4 @@
-import deleteIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/delete.svg";
+import deleteIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/delete.svg";
 import visibility from "../../utils/visibility";
 import deleteDialog from "../dialog/deleteDialog";
 

@@ -5,9 +5,9 @@ import createIconButton from "./components/button/iconButton";
 import addEditDialog from "./components/dialog/addEditDialog";
 import deleteDialog from "./components/dialog/deleteDialog";
 import undoPopup from "./components/undoPopup";
-import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/calendar.svg";
-import editIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/edit.svg";
-import deleteIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/delete.svg";
+import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/calendar.svg";
+import editIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/edit.svg";
+import deleteIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/delete.svg";
 import showTaskDialog from "./components/dialog/showTaskDialog";
 import visibility from "./utils/visibility";
 
@@ -72,13 +72,17 @@ export default class TaskRenderer {
     render (filter = (task) => task) {
         this.#parent.innerHTML = "";
 
-        if (this.#tasks.getList ().length < 1) {
+        const tasksInActiveSection = this.#tasks.getList ().filter (filter).length;
+
+        if (tasksInActiveSection < 1 || this.#tasks.getList ().length < 1) {
             visibility.show (this.#emptyState);
             visibility.hide (this.#parent);
             return ;
         }
 
         const sorted = this.#tasks.getList ().filter (filter).sort ((a, b) => a.priority - b.priority || a.dueDate - b.dueDate);
+
+        console.log ("taskRenderer: " + sorted);
 
         sorted.forEach ((task) => {
             this.#parent.appendChild (this.#renderTask (task));

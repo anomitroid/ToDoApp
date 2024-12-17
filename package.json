@@ -1,5 +1,5 @@
 {
-  "name": "to-do-list",
+  "name": "todoapp",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

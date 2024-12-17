@@ -1,10 +1,10 @@
 import projects from "../store/projects";
 import deleteProjectButton from "../components/button/deleteProjectButton";
 import editProjectButton from "../components/button/editProjectButton";
-import inboxIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/inbox.svg";
-import starIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/star.svg";
-import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/calendar.svg";
-import checkIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/To-Do-List/src/assets/icons/check.svg"
+import inboxIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/inbox.svg";
+import starIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/star.svg";
+import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/calendar.svg";
+import checkIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/check.svg"
 import { isAfter, isBefore, isToday, startOfToday } from "date-fns";
 import visibility from "./visibility";
 

@@ -17,12 +17,12 @@ const showSidebar = () => {
     visibility.show (sidebar);
 
     if (sidebarBtn) visibility.hide (sidebarBtn);
+    mainContainer.classList.toggle ("sidebar-open");
 
     setTimeout (() => {
         sidebar.style.transform = "translateX(0)";
         setTimeout (() => {
             container.style.position = "static";
-            mainContainer.classList.toggle ("sidebar-open");
         }, 150);
     }, 0);
 };

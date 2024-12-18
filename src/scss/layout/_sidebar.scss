@@ -61,6 +61,7 @@
     &-title {
         font-size: 1.25rem;
         font-weight: 700;
+        text-decoration: none;
 
         @include themify {
             color: themed("main");

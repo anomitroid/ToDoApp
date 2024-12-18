@@ -10,7 +10,7 @@ const addSidebarIcon = () => {
 };
 
 const addNewTaskButton = (onClick = null) => {
-    const content = document.querySelector (".main-content");
+    const content = document.querySelector (".main");
     content.appendChild (createAddTaskButton ("btn-add-task-l", onClick));
 };
 

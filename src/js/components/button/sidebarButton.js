@@ -4,7 +4,7 @@ import sidebarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoA
 
 let sidebarBtn;
 
-const mainContainer = document.querySelector (".main-content");
+const mainContainer = document.querySelector (".main");
 const sidebar = document.querySelector (".sidebar");
 const container = document.querySelector (".sidebar-container");
 const background = document.querySelector (".sidebar-bg");

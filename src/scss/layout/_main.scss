@@ -81,3 +81,9 @@
 .sidebar-open > button {
 	transform: translateX(40%);
 }
+
+@media screen and (max-width: 580px) {
+	.sidebar-open > button {
+		display: none;
+	}
+}

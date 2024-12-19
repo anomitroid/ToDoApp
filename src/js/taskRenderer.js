@@ -82,6 +82,27 @@ export default class TaskRenderer {
         const tasksInActiveSection = this.#tasks.getList ().filter (filter).length;
 
         if (tasksInActiveSection < 1 || this.#tasks.getList ().length < 1) {
+            if (navigator.getActiveItem ().dataName === "today") {
+                this.#emptyState.firstChild.textContent = "No more tasks today!";
+                this.#emptyState.childNodes[1].textContent = "Add more tasks using the button below, or just call it a day!";
+            }
+            else if (navigator.getActiveItem ().dataName === "upcoming") {
+                this.#emptyState.firstChild.textContent = "No tasks scheduled!";
+                this.#emptyState.childNodes[1].textContent = "Add more tasks using the button below, or just call it a day!";
+            }
+            else if (navigator.getActiveItem ().dataName === "recently_completed") {
+                this.#emptyState.firstChild.textContent = "No completed tasks yet!";
+                this.#emptyState.childNodes[1].textContent = "Go complete your tasks or add tasks!";
+            }
+            else if (navigator.getActiveItem ().color) {
+                this.#emptyState.firstChild.textContent = "No tasks in this project!";
+                this.#emptyState.childNodes[1].textContent = "Add more tasks using the button below, or just call it a day!";
+            }
+            else {
+                this.#emptyState.firstChild.textContent = "It's pretty empty here!";
+                this.#emptyState.childNodes[1].textContent = "Add more tasks using the button below, or just call it a day!";
+            }
+    
             visibility.show (this.#emptyState);
             visibility.hide (this.#parent);
             return ;

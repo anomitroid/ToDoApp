@@ -12,11 +12,8 @@ class AutoDeleteDialog extends Dialog {
 
         this.submitBtn.disabled = true;
 
-        this.numberInput.addEventListener ("change", this.validateInputs ());
-        this.unitInput.addEventListener ("change", (e) => {
-            e.preventDefault ();
-            this.validateInputs ();
-        });
+        this.numberInput.addEventListener ("input", () => this.validateInputs ());
+        this.unitInput.addEventListener ("change", () => this.validateInputs ());
     }
 
     open (object) {

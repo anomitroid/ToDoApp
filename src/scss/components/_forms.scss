@@ -32,10 +32,13 @@
         font-weight: 500;
 
         &-auto-delete-number {
+            border: 1px solid #a1a1aa !important;
+            border-radius: 4px;
             font-size: 1.15rem;
             margin: 1rem 0;
-            width: 6rem !important;
+            width: fit-content !important;
             overflow: hidden;
+            padding: 0.5rem;
 
             &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
                 -webkit-appearance: none;
@@ -59,6 +62,9 @@
 
         &-unit-option {
             font-size: 0.75rem;
+            text-align: center;
+            font-family: inherit;
+            font-weight: bold;
             @include themify {
                 color: themed("text-main");
                 background-color: themed("background");
@@ -119,11 +125,18 @@
         align-items: center;
         gap: 1rem;
         justify-content: flex-start;
+
+        & > .form-label {
+            border: 1px solid #a1a1aa !important;
+            border-radius: 4px;
+            padding: 0.5rem;
+            width: auto !important;
+        }
     }
 
     &-description {
         @include themify {
-            color: themed("text-secondary");
+            color: themed("text-secondary") !important;
         }
     }
 

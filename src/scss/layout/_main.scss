@@ -85,6 +85,10 @@
 	transform: translateX(-35%);
 }
 
+.sidebar-open .btn-timer, .sidebar-open .btn-project-edit, .sidebar-open .btn-delete {
+	margin-top: 0.2rem;
+}
+
 .sidebar-open > button {
 	transform: translateX(40%);
 }

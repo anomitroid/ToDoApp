@@ -31,7 +31,7 @@ const updateFullNav = () => {
     const projectsWithFilters = projects.getProjects ().getList ().map ((project) => {
         return {
             ...project,
-            filter : (task) => task.projectId == project.id
+            filter : (task) => (task.projectId == project.id) && !task.completed
         };
     });
 

@@ -15,7 +15,7 @@ module.exports = (_, argv) => {
         devtool : isProd ? "source-map" : "inline-source-map",
         plugins : [
             new HtmlWebpackPlugin ({
-                title : "TodoApp",
+                title : "ToDoApp",
                 template : "./src/index.html",
             }),
             new MiniCssExtractPlugin ({

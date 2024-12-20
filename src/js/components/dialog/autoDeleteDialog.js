@@ -1,42 +1,82 @@
 import Dialog from "./dialog";
 import tasks from "../../store/tasks";
+import visibility from "../../utils/visibility";
 
 class AutoDeleteDialog extends Dialog {
-    constructor() {
-        super(".dialog-auto-delete", ".form-auto-delete");
+    constructor () {
+        super (".dialog-auto-delete", ".form-auto-delete");
 
-        this.timeInput = this.form.querySelector(".form-input-time");
+        this.numberInput = this.form.querySelector (".form-input-auto-delete-number");
+        this.unitInput = this.form.querySelector (".form-input-auto-delete-unit");
+        this.error = this.form.querySelector (".form-error");
+
+        this.submitBtn.disabled = true;
+
+        this.numberInput.addEventListener ("change", this.validateInputs ());
+        this.unitInput.addEventListener ("change", (e) => {
+            e.preventDefault ();
+            this.validateInputs ();
+        });
     }
 
-    open() {
-        super.open();
+    open (object) {
+        console.log ("autoDeleteDialog: just opened the dialog.");
 
-        // Get the current auto-delete time, defaulting to 24 hours (86400000 ms) if not set
-        const currentTime =
-            tasks.getTasks()
-                .getList()
-                .find((task) => task.autoDeleteTime)?.autoDeleteTime || 86400000;
-
-        this.timeInput.value = currentTime / 3600000; // Convert ms to hours
+        super.open (object);
+        
+        this.numberInput.value = "";
+        this.unitInput.value = "";
+        visibility.hide (this.error);
+        this.submitBtn.disabled = true;
     }
 
-    onSubmit(e) {
-        e.preventDefault();
+    validateInputs () {
+        const numberValue = this.numberInput.value.trim ();
+        const unitValue = this.unitInput.value;
 
-        const timeInHours = parseInt(this.timeInput.value, 10);
-        const timeInMs = timeInHours * 3600000; // Convert hours to ms
+        if (numberValue && unitValue) {
+            this.submitBtn.disabled = false;
+            visibility.hide (this.error);
+        }
+        else {
+            this.submitBtn.disabled = true;
+            visibility.show (this.error);
+        }
+    }
 
-        // Update all tasks with the new auto-delete time
-        tasks.getTasks()
-            .getList()
-            .forEach((task) => {
-                task.autoDeleteTime = timeInMs;
-            });
+    onSubmit (e) {
+        e.preventDefault ();
 
-        tasks.getTasks().save();
-        console.log(`Auto-delete time set to ${timeInHours} hours (${timeInMs} ms)`);
-        this.close();
+        const numberValue = parseInt (this.numberInput.value.trim (), 10);
+        const unitValue = this.unitInput.value;
+
+        if (!numberValue || !unitValue) {
+            visibility.show (this.error);
+            return;
+        }
+
+        console.log (`autoDeleteDialog: Set auto-delete for ${numberValue} ${unitValue}`);
+
+        this.autoDeleteTime = this.calculateMs (numberValue, unitValue);
+        window.autoDeleteTime = this.autoDeleteTime;
+
+        console.log (`autoDeleteDialog: Auto-delete timer set for ${window.autoDeleteTime} ms`);
+        this.close ();
+    }
+
+    calculateMs (value, unit) {
+        const unitToMs = {
+            seconds : 1000,
+            minutes : 1000 * 60,
+            hours : 1000 * 60 * 60,
+            days : 1000 * 60 * 60 * 24,
+            weeks : 1000 * 60 * 60 * 24 * 7,
+            months : 1000 * 60 * 60 * 24 * 30,
+            years : 1000 * 60 * 60 * 24 * 365
+        };
+
+        return value * (unitToMs[unit] || 0);
     }
 }
 
-export default new AutoDeleteDialog();
+export default new AutoDeleteDialog ();

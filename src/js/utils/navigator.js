@@ -1,6 +1,7 @@
 import projects from "../store/projects";
 import deleteProjectButton from "../components/button/deleteProjectButton";
 import editProjectButton from "../components/button/editProjectButton";
+import autoDeleteTimeButton from "../components/button/autoDeleteTimeButton";
 import inboxIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/inbox.svg";
 import starIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/star.svg";
 import calendarIcon from "!!raw-loader!C:/Users/anomi/OneDrive/Desktop/HTML/TodoApp/src/assets/icons/calendar.svg";
@@ -78,12 +79,16 @@ const updateNavigationDOM = () => {
 
         deleteProjectButton.showButton (targetBtn.dataset.id);
         editProjectButton.showButton (targetBtn.dataset.id);
+
+        autoDeleteTimeButton.hideButton ();
     }
     else {
         visibility.hide (colorElement);
 
         deleteProjectButton.hideButton ();
         editProjectButton.hideButton ();
+
+        autoDeleteTimeButton.showButton ();
     }
 
     const titleElement = document.querySelector (".main-title");

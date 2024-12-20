@@ -108,6 +108,35 @@
         </form>
     </dialog>
 
+    <dialog class = "dialog dialog-s dialog-auto-delete">
+        <form class = "form form-auto-delete">
+            <div class = "form-title">Set Auto-Delete Timer</div>
+            <p class = "form-description">Task will be deleted after this time from completion. (1 day by default)</p>
+            <div class = "form-timer">
+                <input type = "number" class = "form-input form-input-auto-delete-number" placeholder = "Enter time" min = "1" required>
+                <label class = "form-label">
+                    <select class = "form-input form-input-auto-delete-unit" required>
+                        <option class = "form-input-unit-option" value = "" disabled selected>Select unit</option>
+                        <option class = "form-input-unit-option" value = "seconds">Seconds</option>
+                        <option class = "form-input-unit-option" value = "minutes">Minutes</option>
+                        <option class = "form-input-unit-option" value = "hours">Hours</option>
+                        <option class = "form-input-unit-option" value = "days">Days</option>
+                        <option class = "form-input-unit-option" value = "weeks">Weeks</option>
+                        <option class = "form-input-unit-option" value = "months">Months</option>
+                        <option class = "form-input-unit-option" value = "years">Years</option>
+                    </select>
+                </label>
+            </div>
+            
+            <p class = "form-error hidden">Please enter a valid number and select a time unit.</p>
+            <hr>
+            <div class = "form-btns-func">
+                <button type = "button" class = "btn btn-func btn-func-secondary btn-cancel">Cancel</button>
+                <button type = "submit" class = "btn btn-func btn-func-primary">Save</button>
+            </div>
+        </form>
+    </dialog>
+    
     <div class = "popup popup-undo hidden">
         Task Completed
         <button type = "button" class = "btn btn-undo">Undo</button>
@@ -116,6 +145,7 @@
     <div class = "container">
         <main class = "main">
             <div class = "main-header">
+                <button type = "button" class = "btn btn-timer btn-icon hidden"></button>
                 <button type = "button" class = "btn btn-project-edit btn-icon hidden"></button>
                 <button type = "button" class = "btn btn-delete btn-icon hidden"></button>
             </div>

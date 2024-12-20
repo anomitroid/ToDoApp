@@ -11,11 +11,11 @@
         visibility: hidden;
     }
   
-    &::after, & > textarea {
+    &::after, & > textarea, & > p {
         grid-area: 1 / 1 / 2 / 2;
     }
   
-    > textarea {
+    > textarea, > p {
         resize: none;
         overflow: hidden;
     }

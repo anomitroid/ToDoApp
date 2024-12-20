@@ -6,6 +6,8 @@ const tasksList = tasks.getTasks ();
 const autoDeleteTimers = new Map (); 
 
 const autoDeleteCompletedTasks = () => {
+    const duration = window.autoDeleteTime || 8640000;
+
     tasksList.getList ().forEach ((task) => {
         const { id, completed } = task;
 
@@ -14,9 +16,9 @@ const autoDeleteCompletedTasks = () => {
                 const timer = setTimeout (() => {
                     tasksList.delete (id);
                     tasks.renderTasks ((task) => task.completed);
-                    console.log (`autoDelete: Deleted task with id ${id} after 10 seconds`);
+                    console.log (`autoDelete: Deleted task with id ${id} after ${duration}ms`);
                     autoDeleteTimers.delete (id); 
-                }, 10000);
+                }, duration);
 
                 autoDeleteTimers.set (id, timer); 
                 console.log (`autoDelete: Scheduled deletion for task with id ${id}`);

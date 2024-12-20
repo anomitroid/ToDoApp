@@ -30,6 +30,40 @@
     &-input {
         font-size: 1.5rem;
         font-weight: 500;
+
+        &-auto-delete-number {
+            font-size: 1.15rem;
+            margin: 1rem 0;
+            width: 6rem !important;
+            overflow: hidden;
+
+            &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0;    
+            }
+        }
+        &-auto-delete-unit {
+            font-size: 1.15rem;
+            width: max-content !important;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: transparent;
+            border: none;
+            @include themify {
+                color: themed("text-main");
+            }
+        }
+
+        &-unit-option {
+            font-size: 0.75rem;
+            @include themify {
+                color: themed("text-main");
+                background-color: themed("background");
+            }
+        }
     }
 
     &-error {
@@ -80,15 +114,34 @@
         left: 0;
     }
 
+    &-timer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+
+    &-description {
+        @include themify {
+            color: themed("text-secondary");
+        }
+    }
+
     label {
         cursor: pointer;
     }
 
-    textarea {
+    textarea, p {
         font-size: 1rem;
     }
 
-    input, textarea {
+    p {
+        margin: 1rem 0;
+        font-size: 0.95rem;
+        font-weight: 400;
+    }
+
+    input, textarea, p {
         display: block;
         width: 100%;
         border: none;

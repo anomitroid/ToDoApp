@@ -12,7 +12,7 @@ export default class Dialog {
         this.form.addEventListener ("submit", (e) => this.onSubmit (e));
 
         this.dialog.addEventListener ("click", (e) => {
-            const rect = e.target.getBoundingClientRect ();
+            const rect = this.dialog.getBoundingClientRect ();
             if (rect.left > e.clientX || rect.right < e.clientX || rect.top > e.clientY || rect.bottom < e.clientY) this.close ();
         });
     }

@@ -25,6 +25,9 @@ class AutoDeleteDialog extends Dialog {
         this.unitInput.value = "";
         visibility.hide (this.error);
         this.submitBtn.disabled = true;
+
+        const button = document.querySelector (".btn.btn-timer");
+        button.classList.remove ("popup-active");
     }
 
     validateInputs () {
@@ -37,7 +40,9 @@ class AutoDeleteDialog extends Dialog {
         }
         else {
             this.submitBtn.disabled = true;
-            visibility.show (this.error);
+
+            if (numberValue || unitValue) visibility.show (this.error);
+            else visibility.hide (this.error);  
         }
     }
 
@@ -58,6 +63,8 @@ class AutoDeleteDialog extends Dialog {
         window.autoDeleteTime = this.autoDeleteTime;
 
         console.log (`autoDeleteDialog: Auto-delete timer set for ${window.autoDeleteTime} ms`);
+        this.showPopup (numberValue, unitValue);
+        console.log ("autoDeleteDialog: closing dialog");
         this.close ();
     }
 
@@ -73,6 +80,19 @@ class AutoDeleteDialog extends Dialog {
         };
 
         return value * (unitToMs[unit] || 0);
+    }
+
+    showPopup (value, unit) {
+        console.log ("autoDeleteDialog: showing popup");
+
+        const button = document.querySelector (".btn.btn-timer");
+        button.classList.add ("popup-active");
+
+        button.style.setProperty ("--popup-content", `"Timer set to ${value} ${unit}`);        
+
+        setTimeout (() => {
+            button.classList.remove ("popup-active");
+        }, 30000);
     }
 }
 
